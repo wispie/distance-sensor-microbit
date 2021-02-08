@@ -1,8 +1,8 @@
-let distance = 0
-let lightLevel = 0
+let distance: number = 0
+let lightLevel: number = 0
 let mode: number = 0
-let permittedLightLevel = 50
-let permittedDistance = 50
+let permittedLightLevel: number = 50
+let permittedDistance: number = 50
 let icon = IconNames.House
 
 function getDistance() {
