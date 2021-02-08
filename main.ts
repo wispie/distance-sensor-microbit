@@ -6,6 +6,8 @@ let permittedDistance: number = 50
 let icon = IconNames.House
 
 function getDistance() {
+    return input.lightLevel() // TEMPORARY TESTING
+
     pins.digitalWritePin(DigitalPin.P0, 0)
     control.waitMicros(2)
 
@@ -22,8 +24,6 @@ basic.forever(function () {
     input.onButtonPressed(Button.A, function () { mode = 1 })
     input.onButtonPressed(Button.B, function () { mode = 2 })
 
-
-    
     while(mode == 1) {
         // lightLevel = input.lightLevel()
 
@@ -47,9 +47,9 @@ basic.forever(function () {
         distance = getDistance()
         
         if(distance < permittedDistance) 
-            pins.servoWritePin(AnalogPin.P0, 90)
-        else
             pins.servoWritePin(AnalogPin.P0, 0)
+        else
+            pins.servoWritePin(AnalogPin.P0, 90)
 
         basic.pause(20)
     }
